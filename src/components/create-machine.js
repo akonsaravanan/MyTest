@@ -50,11 +50,9 @@ export default class CreateMachine extends Component {
     };
 
     // send the form data to server
-    axios
-      .post("http://localhost:4000/machines/add-machine", machineObject)
-      .then((res) => {
-        alert("Machine details successfully added!");
-      });
+    axios.post("http://localhost:4000/machines/add-machine", machineObject).then((res) => {
+      alert("Machine details successfully added!");
+    });
     // After added the data successfully into database the again reinitialized
     this.setState({ name: "", type: "", status: "" });
   } // end of onSubmit function
@@ -65,23 +63,13 @@ export default class CreateMachine extends Component {
         <Form onSubmit={this.onSubmit}>
           <Form.Group controlId="Name">
             <Form.Label>Machine Name*</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.state.name}
-              onChange={this.onChangeMachineName}
-              required
-            />
+            <Form.Control type="text" value={this.state.name} onChange={this.onChangeMachineName} required />
           </Form.Group>
 
           <Form.Group controlId="Name">
             <Form.Label>Machine Type*</Form.Label>
             {/* <Form.Control type="email" value={this.state.type} onChange={this.onChangeMachineType} /> */}
-            <Form.Select
-              id="selectList"
-              onChange={this.onChangeMachineType}
-              value={this.state.type}
-              required
-            >
+            <Form.Select id="selectList" onChange={this.onChangeMachineType} value={this.state.type} required>
               <option value="">Select</option>
               <option value="Manual">Manual</option>
               <option value="Automated">Automated</option>
@@ -90,21 +78,10 @@ export default class CreateMachine extends Component {
 
           <Form.Group controlId="Name">
             <Form.Label>Machine Status*</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.state.status}
-              onChange={this.onChangeMachineStatus}
-              required
-            />
+            <Form.Control type="text" value={this.state.status} onChange={this.onChangeMachineStatus} required />
           </Form.Group>
 
-          <Button
-            variant="danger"
-            size="lg"
-            block="block"
-            type="submit"
-            className="mt-4"
-          >
+          <Button variant="danger" size="lg" block="block" type="submit" className="mt-4">
             Add machine
           </Button>
         </Form>
